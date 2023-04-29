@@ -1,23 +1,23 @@
 import random
 
-def fun(sc):
-    a = random.randint(1, 10)
+def game(score,name):
+    cch = random.randint(1, 10)
     for i in range(5):
-        ch = int(input("\t\tEnter a number between 1 and 10: "))
-        if ch != a:
+        choice = int(input("\t\tEnter a number between 1 and 10: "))
+        if choice != cch:
             print("\n\t\t\tWrong! Try again...\n")
-            sc -= 50
+            score -= 50
         else:
-            print("\n\t\tCongratulations, you guessed it!\n")
-            sc += 100
-            break
+            print(f"\n\t\tCongratulations{name}, you guessed it!\n")
+            score += 100
     else:
-        print("\nGame over. The correct answer was", a)
-        sc = 0
-    return sc 
+        print("\nGame over. The correct answer was", cch)
+        score = 0
+    return score  
 
 print('\n\n----------------------Welcome to Guess The Number----------------------\n\n')
 print('Rule of the game: \n\t You have five chances to guess a number.\n\n')
-sc = 200
-sc = fun(sc)
-print("Final score:", sc)
+name = input("Enter your name: ")
+score = 200
+score = game(score,name)
+print("Final score:", score)
