@@ -1,9 +1,16 @@
 import random
-words = ['python', 'computer', 'programming', 'algorithm', 'coding']
-word = random.choice(words)
-board = '_' * len(word)
+
+print('\n\n----------------------Welcome to Game of Hangman!!----------------------\n')
+name = input('\nEnter your name: ')
+
+ws = ['python', 'computer', 'programming', 'algorithm', 'coding']
+print(f"\n\tHello {name} !! Let's start ... \nYou have to guess characters of random word given from this list",ws)
+print("\n\t...You have 6 turns to guess the word...")
+
+w = random.choice(ws)
+b = '_' * len(w)
 turns = 6
-guessed = []
+gd = []
 hangman = [
     """
      _______
@@ -69,27 +76,27 @@ hangman = [
     |
     """
 ]
-while turns > 0 and '_' in board:
-    print(f'Word: {board}')
-    print(f'Turns left: {turns}')
-    print(f'Guessed letters: {", ".join(guessed)}')
+while turns > 0 and '_' in b:
+    print(f'\n\tWord: {b}')
+    print(f'\n\tTurns left: {turns}')
+    print(f'\n\tGuessed letters: {", ".join(gd)}')
     print(hangman[6-turns])
-    guess = input('Guess a letter: ').lower()
-    if not guess.isalpha() or len(guess) != 1:
-        print('Invalid input! Please enter a single letter.')
+    g = input('\n\tGuess a letter: ').lower()
+    if not g.isalpha() or len(g) != 1:
+        print('\n\tInvalid input! Please enter a single letter.')
         continue
-    if guess in guessed:
-        print(f'You already guessed {guess}!')
+    if g in gd:
+        print(f'\n\tYou already guessed {g}!')
         continue
-    guessed.append(guess)
-    if guess in word:
-        print(f'Correct! {guess} is in the word.')
-        board = ''.join([c if c == guess or board[i] != '_' else '_' for i, c in enumerate(word)])
+    gd.append(g)
+    if g in w:
+        print(f'\n\tCorrect! {g} is in the word.')
+        b = ''.join([c if c == g or b[i] != '_' else '_' for i, c in enumerate(w)])
     else:
-        print(f'Wrong! {guess} is not in the word.')
+        print(f'\n\tWrong! {g} is not in the word.')
         turns -= 1
-if '_' not in board:
-    print(f'Congratulations, you won! The word was {word}.')
+if '_' not in b:
+    print(f'\n\tCongratulations {name}, you won! The word was {w}.')
 else:
-    print(f'Sorry, you lost! The word was {word}.')
+    print(f'\n\tSorry {name}, you lost! The word was {w}.')
     print(hangman[6])
