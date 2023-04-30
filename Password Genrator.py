@@ -19,6 +19,30 @@ if n == 8:
     pwl = up1 + lo1 + di1 + pu1
     for i in pwl:
         pw = pw + i
+elif n==9:
+    up1 = random.choices(up,k=2)
+    lo1 = random.choices(lo,k=2)
+    di1 = random.choices(di,k=2)
+    pu1 = random.choices(pu,k=3)
+    pwl = up1 + lo1 + di1 + pu1
+    for i in pwl:
+        pw = pw + i
+elif n==10:
+    up1 = random.choices(up,k=2)
+    lo1 = random.choices(lo,k=2)
+    di1 = random.choices(di,k=3)
+    pu1 = random.choices(pu,k=3)
+    pwl = up1 + lo1 + di1 + pu1
+    for i in pwl:
+        pw = pw + i
+elif n==11:
+    up1 = random.choices(up,k=2)
+    lo1 = random.choices(lo,k=3)
+    di1 = random.choices(di,k=3)
+    pu1 = random.choices(pu,k=3)
+    pwl = up1 + lo1 + di1 + pu1
+    for i in pwl:
+        pw = pw + i
 elif n==12:
     up1 = random.choices(up,k=3)
     lo1 = random.choices(lo,k=3)
